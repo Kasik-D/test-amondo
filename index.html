@@ -1,0 +1,27 @@
+<html>
+
+<head></head>
+
+<body>
+  <div id="amondo-container"></div>
+  <script>
+    function amondo_init() {
+      var container = document.querySelector('#amondo-container');
+      amondo.imprint.create(container, {
+        "mode": "gallery",
+        "id": ["21777","21640"],
+        "layout": {
+          "galleryType": "circles"
+        },
+        "theme": {
+          "accentColour": "#ECEDEE",
+          "background": "transparent",
+          "foreground": "#ffffff"
+        }
+      });
+    }
+  </script>
+  <script async defer src="https://static.amondo.com/web-sdk/3/amondo-web-sdk.js" onload="amondo_init()"></script>
+</body>
+
+</html>
