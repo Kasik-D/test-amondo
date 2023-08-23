@@ -4,62 +4,34 @@
   </head>
 
   <body>
-    <div id="amondo-container"></div>
-    <script>
-      function amondo_init() {
-        var container = document.querySelector("#amondo-container");
-        amondo.imprint.create(container, {
-          mode: "gallery",
-          id: ["27796", "27771", "27769", "27767", "21777"],
-          layout: {
-            galleryType: "covers",
-          },
-          theme: {
-            accentColour: "#ECEDEE",
-            background: "transparent",
-            foreground: "#ffffff",
-          },
-        });
-      }
-    </script>
-    <script
-      async
-      defer
-      src="https://static.amondo.com/web-sdk/3/amondo-web-sdk.js"
-      onload="amondo_init()"
-    ></script>
-    <!-- <script src="https://static.amondo.com/web-sdk/2/amondo-web-sdk.js"></script>
-    <script>
-      var container = document.querySelector("#amondo-container");
-      amondo.imprint.create(container, {
-        id: 21777,
-        mode: "gallery",
-        layout: {
-          galleryType: "circles",
-        },
-        theme: {
-          accentColour: "#ECEDEE",
-          background: "transparent",
-          foreground: "#ffffff",
-        },
-      });
-    </script> -->
-  </body>
-</html>
-
-<!-- <script src="https://static.amondo.com/web-sdk/2/amondo-web-sdk.js"></script>
+    <div id="amondo-example"></div>
+    <script src="https://static.amondo.com/web-sdk/2/amondo-web-sdk.js"></script>
     <script>
       var container = document.querySelector("#amondo-example");
       amondo.imprint.create(container, {
-        id: [21777, 21640],
-        mode: "gallery",
-        layout: {
-          galleryType: "circles",
-        },
+        id: 21777,
         theme: {
           accentColour: "#ECEDEE",
           background: "transparent",
           foreground: "#ffffff",
         },
       });
-    </script> -->
+      function waitForDivToAppear() {
+        const containerGrid = document.querySelector('div[data-testid="grid"]');
+
+        if (containerGrid) {
+
+          containerGrid.style.gridTemplateColumns = "1fr 1fr 1fr";
+
+          return;
+        }
+
+        // If the div is not found yet, wait for a brief moment and check again.
+        setTimeout(waitForDivToAppear, 500); // Check every 1 second (adjust the interval as needed).
+      }
+
+      // Start waiting for the div to appear.
+      waitForDivToAppear();
+    </script>
+  </body>
+</html>
