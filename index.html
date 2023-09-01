@@ -1,11 +1,13 @@
 <html>
   <head>
-    <link rel="stylesheet" href="app.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="app.css" /> -->
   </head>
 
   <body>
     <div id="amondo-example"></div>
-    <script src="https://static.amondo.com/web-sdk/2/amondo-web-sdk.js"></script>
+    <script src="https://static.amondo.com/web-sdk/3/amondo-web-sdk.js"></script>    
     <script>
       var container = document.querySelector("#amondo-example");
       amondo.imprint.create(container, {
@@ -17,11 +19,13 @@
         },
       });
       function waitForDivToAppear() {
-        const containerGrid = document.querySelector('div[data-testid="grid"]');
+        const containersGrid = document.querySelectorAll('div[data-testid="grid_item"]');
 
-        if (containerGrid) {
+        if (containersGrid.length > 0) {
 
-          containerGrid.style.gridTemplateColumns = "1fr 1fr 1fr";
+         Array.from(containersGrid).forEach((element) => {
+            element.style.display = "grid";
+          });
 
           return;
         }
@@ -30,7 +34,6 @@
         setTimeout(waitForDivToAppear, 500); // Check every 1 second (adjust the interval as needed).
       }
 
-      // Start waiting for the div to appear.
       waitForDivToAppear();
     </script>
   </body>
