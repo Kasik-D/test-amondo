@@ -1,13 +1,12 @@
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="app.css" /> -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body>
     <div id="amondo-example"></div>
-    <script src="https://static.amondo.com/web-sdk/3/amondo-web-sdk.js"></script>    
+    <script src="https://static.amondo.com/web-sdk/3/amondo-web-sdk.js"></script>
     <script>
       var container = document.querySelector("#amondo-example");
       amondo.imprint.create(container, {
@@ -19,11 +18,19 @@
         },
       });
       function waitForDivToAppear() {
-        const containersGrid = document.querySelectorAll('div[data-testid="grid_item"]');
+        const containersGrid = document.querySelectorAll(
+          'div[data-testid="grid_item"]'
+        );
+        const containersList = document.querySelector(
+          'div[data-testid="grid"]'
+        );
 
         if (containersGrid.length > 0) {
+          if (containersList) {
+            containersList.style.gridTemplateColumns = "1fr 1fr 1fr";
+          }
 
-         Array.from(containersGrid).forEach((element) => {
+          Array.from(containersGrid).forEach((element) => {
             element.style.display = "grid";
           });
 
